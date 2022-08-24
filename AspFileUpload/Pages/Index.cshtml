@@ -1,0 +1,23 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Upload";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@foreach (var entry in Model.Entries){
+    <p>@entry.Name (containing @entry.Content.Length bytes)</p>
+}
+
+
+<form enctype="multipart/form-data" method="POST">
+    
+    <input asp-for="FormFile" type="file" />
+
+    <input asp-page-handler="Upload" type="submit" />
+
+</form>
